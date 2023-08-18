@@ -13,7 +13,7 @@ import web.service.CarService;
 @RequestMapping("/cars")
 public class CarController {
     private final String CARS_LIST = "cars";
-    private CarService carService;
+    private final CarService carService;
     public CarController(CarService carService) {
         this.carService = carService;
     }
