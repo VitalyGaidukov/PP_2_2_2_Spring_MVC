@@ -1,12 +1,15 @@
 package web.service;
 
 import org.springframework.stereotype.Component;
+import web.dao.CarDAO;
 import web.models.Car;
+
 
 import java.util.ArrayList;
 import java.util.List;
 @Component
 public class CarServiceImpl implements CarService {
+    private CarDAO carDAO;
     private List<Car> carList;
 
     {
@@ -22,13 +25,8 @@ public class CarServiceImpl implements CarService {
         if (a<1 || a>=5){
             return carList;
         }
-        List<Car>list = new ArrayList<>();
-        int count = 0;
-        while (count<a){
-            list.add(carList.get(count)) ;
-            count++;
-        }
-        return list;
+        return carList = carDAO.getCar(a);
+
     }
 }
 
